@@ -1,0 +1,1064 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <title>Raamsdonksveer 1 – KNLTB Wintercompetitie 2025/2026</title>
+
+  <!-- Optioneel: iets strakker lettertype -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* TPV palette (uit je logo gehaald) */
+      --tpv-navy: #26276F;
+      --tpv-navy-2:#222D75;
+      --tpv-royal:#445B95;
+      --tpv-sky:  #5B9ECA;
+      --tpv-cyan: #01B6ED;
+      --tpv-ice:  #D5E1ED;
+      --tpv-white:#FFFFFF;
+
+      --bg: #F6FAFF;
+      --text:#0E1633;
+      --muted:#4A5578;
+
+      --card:#FFFFFF;
+      --border: rgba(34,45,117,.14);
+      --shadow: 0 10px 30px rgba(34,45,117,.10);
+      --shadow2: 0 4px 14px rgba(34,45,117,.08);
+
+      --radius: 18px;
+      --radius2: 14px;
+
+      --success-bg: rgba(1,182,237,.12);
+      --success-bd: rgba(1,182,237,.35);
+
+      --warn-bg: rgba(68,91,149,.10);
+      --warn-bd: rgba(68,91,149,.30);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 500px at 15% 0%, rgba(1,182,237,.14) 0%, rgba(1,182,237,0) 55%),
+        radial-gradient(900px 500px at 85% 10%, rgba(68,91,149,.18) 0%, rgba(68,91,149,0) 55%),
+        linear-gradient(180deg, var(--bg) 0%, #fff 70%);
+    }
+
+    a{ color: var(--tpv-navy-2); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .wrap{
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 28px 18px 70px;
+    }
+
+    /* Topbar / header (lichte “KNLTB vibe”) */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(246,250,255,.78);
+      border-bottom: 1px solid rgba(34,45,117,.10);
+    }
+    .topbar-inner{
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 260px;
+    }
+    .brand img{
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: var(--shadow2);
+      background: #fff;
+      padding: 6px;
+      border: 1px solid rgba(34,45,117,.10);
+    }
+    .brand .titles{
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
+    }
+    .brand .titles .kicker{
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      color: var(--tpv-royal);
+      text-transform: uppercase;
+    }
+    .brand .titles .title{
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--tpv-navy-2);
+    }
+
+    .actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(34,45,117,.14);
+      background: rgba(255,255,255,.9);
+      box-shadow: var(--shadow2);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--tpv-navy-2);
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn.primary{
+      border-color: rgba(1,182,237,.35);
+      background: linear-gradient(180deg, rgba(1,182,237,.16), rgba(1,182,237,.10));
+    }
+
+    /* Hero */
+    .hero{
+      margin-top: 18px;
+      border-radius: var(--radius);
+      background:
+        radial-gradient(900px 360px at 10% 0%, rgba(1,182,237,.20) 0%, rgba(1,182,237,0) 60%),
+        radial-gradient(900px 360px at 90% 20%, rgba(68,91,149,.22) 0%, rgba(68,91,149,0) 58%),
+        linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.90));
+      border: 1px solid rgba(34,45,117,.12);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero-inner{
+      padding: 22px 20px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    h1{
+      margin:0;
+      font-size: clamp(22px, 3.2vw, 32px);
+      letter-spacing: -0.02em;
+      color: var(--tpv-navy-2);
+    }
+    .subtitle{
+      margin-top: 8px;
+      color: var(--muted);
+      font-weight: 600;
+      max-width: 62ch;
+    }
+    .meta{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(34,45,117,.14);
+      background: rgba(255,255,255,.75);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--tpv-navy-2);
+    }
+    .chip strong{ color: var(--tpv-royal); }
+
+    /* Layout */
+    .section-title{
+      margin: 24px 0 10px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: 18px;
+      color: var(--tpv-navy-2);
+      letter-spacing: -0.01em;
+    }
+    .hint{
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .card{
+      grid-column: span 12;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+      position: relative;
+    }
+    @media (min-width: 820px){
+      .card{ grid-column: span 6; }
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width: 6px;
+      background: linear-gradient(180deg, var(--tpv-cyan), var(--tpv-royal));
+      opacity:.95;
+    }
+    .card-inner{
+      padding: 16px 16px 14px 18px;
+      margin-left: 6px;
+    }
+    .card-header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .round{
+      font-weight: 900;
+      color: var(--tpv-navy-2);
+      letter-spacing: -0.01em;
+    }
+    .date{
+      margin-top: 4px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .badges{
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    .badge{
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: 6px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(34,45,117,.18);
+      background: rgba(213,225,237,.35);
+      color: var(--tpv-navy-2);
+      white-space: nowrap;
+    }
+    .badge.home{
+      border-color: var(--success-bd);
+      background: var(--success-bg);
+      color: var(--tpv-navy-2);
+    }
+    .badge.away{
+      border-color: rgba(68,91,149,.30);
+      background: rgba(68,91,149,.10);
+      color: var(--tpv-navy-2);
+    }
+    .badge.shift{
+      border-color: rgba(38,39,111,.24);
+      background: rgba(38,39,111,.08);
+    }
+    .badge.makeup{
+      border-color: rgba(1,182,237,.35);
+      background: rgba(1,182,237,.10);
+    }
+
+    .row{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .kv{
+      flex: 1 1 220px;
+      padding: 10px 12px;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(34,45,117,.12);
+      background: rgba(246,250,255,.65);
+    }
+    .kv .k{
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--tpv-royal);
+      margin-bottom: 6px;
+    }
+    .kv .v{
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--tpv-navy-2);
+    }
+    .kv .v small{
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .opponent a{
+      text-decoration: none;
+      font-weight: 900;
+      color: var(--tpv-navy-2);
+    }
+    .opponent a:hover{ text-decoration: underline; }
+
+    .players{
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: var(--radius2);
+      border: 1px dashed rgba(34,45,117,.20);
+      background: rgba(213,225,237,.30);
+    }
+    .players .k{
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--tpv-royal);
+      margin-bottom: 6px;
+    }
+    .players .v{
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--tpv-navy-2);
+    }
+    .players .v span{
+      font-weight: 800;
+    }
+    .players .v .maybe{
+      opacity:.75;
+      font-weight: 900;
+    }
+
+    .mutedline{
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+    .mutedline a{ font-weight: 800; }
+
+    .strike{
+      text-decoration: line-through;
+      opacity: .65;
+    }
+
+    /* Kleine “quick table” voor mobiel/print */
+    .quick{
+      margin-top: 18px;
+      border-radius: var(--radius);
+      overflow:hidden;
+      border: 1px solid rgba(34,45,117,.12);
+      box-shadow: var(--shadow2);
+      background: rgba(255,255,255,.9);
+    }
+    table{
+      width:100%;
+      border-collapse: collapse;
+    }
+    th,td{
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(34,45,117,.10);
+      text-align:left;
+      font-size: 13px;
+      vertical-align: top;
+    }
+    th{
+      background: rgba(213,225,237,.35);
+      color: var(--tpv-navy-2);
+      font-weight: 900;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+    tr:last-child td{ border-bottom: none; }
+    .col-round{ width: 140px; }
+    .col-type{ width: 110px; }
+
+    /* Print netjes */
+    @media print{
+      .topbar{ display:none; }
+      body{ background:#fff; }
+      .hero, .card, .quick{ box-shadow:none; }
+      .wrap{ padding: 0; }
+      a{ color:#000; text-decoration:none; }
+    }
+  </style>
+
+  <script>
+    function scrollToSchedule() {
+      document.getElementById('schema').scrollIntoView({behavior:'smooth', block:'start'});
+    }
+    function toggleQuick() {
+      const el = document.getElementById('quick');
+      el.hidden = !el.hidden;
+    }
+  </script>
+</head>
+
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <!-- Zet hier je eigen pad/URL naar het TPV-logo -->
+        <img src="https://storage.knltb.club/logos/59b6f2ef-e2a3-42bc-8d0b-48ce2a35119d.png" alt="TPV Raamsdonksveer logo" />
+        <div class="titles">
+          <div class="kicker">TPV Raamsdonksveer</div>
+          <div class="title">Wintercompetitie 2025/2026 · Team 1</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" onclick="scrollToSchedule()">🎾 Naar wedstrijdschema</button>
+        <button class="btn" onclick="toggleQuick()">📋 Quick overzicht</button>
+        <a class="btn" href="https://mijnknltb.toernooi.nl/" target="_blank" rel="noopener">KNLTB →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <h1>Raamsdonksveer 1 – KNLTB Wintercompetitie 2025/2026</h1>
+          <div class="subtitle">
+            Duidelijk overzicht met aanvang/aanwezig/vertrek, routes en spelers. Thuis/uit en verzet/inhaal zijn als badges gemarkeerd.
+          </div>
+
+          <div class="meta">
+            <div class="chip">📍 Thuisbasis: <strong>Wilhelminalaan 34</strong> · 4941 GK</div>
+            <div class="chip">🕒 Tip: <strong>klik adres</strong> voor Maps</div>
+            <div class="chip">🔗 Tegenstander: <strong>klik naam</strong> voor KNLTB</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick table -->
+    <section id="quick" class="quick" hidden>
+      <table>
+        <thead>
+          <tr>
+            <th class="col-round">Ronde</th>
+            <th>Datum</th>
+            <th class="col-type">Thuis/Uit</th>
+            <th>Tegenstander</th>
+            <th>Aanvang</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Ronde 1</td><td>za 15 nov 2025</td><td>Uit</td><td>STRIJDO 3</td><td>13:00</td></tr>
+          <tr><td>Ronde 2</td><td>za 29 nov 2025</td><td>Thuis</td><td>SMASH BOZ 4</td><td>10:00</td></tr>
+          <tr><td>Ronde 3</td><td>za 13 dec 2025</td><td>Uit</td><td>DEN HOUT 1</td><td>10:30</td></tr>
+          <tr><td>Ronde 4 (verzet)</td><td>za 10 jan 2026</td><td>Uit</td><td>RAOKTUM 1</td><td>12:30</td></tr>
+          <tr><td>Ronde 5</td><td>za 17 jan 2026</td><td>Thuis</td><td>SMASH BOZ 5</td><td>10:00</td></tr>
+          <tr><td>Ronde 4 (inhaal)</td><td>za 24 jan 2026</td><td>Uit</td><td>RAOKTUM 1</td><td>12:30</td></tr>
+          <tr><td>Ronde 6</td><td>za 31 jan 2026</td><td>Thuis</td><td>STRIJDO 3</td><td>11:00</td></tr>
+          <tr><td>Ronde 7</td><td>za 7 feb 2026</td><td>Uit</td><td>SMASH BOZ 4</td><td>11:00</td></tr>
+          <tr><td>Ronde 8 (verzet)</td><td class="strike">za 14 feb 2026</td><td>Thuis</td><td>DEN HOUT 1</td><td>10:30</td></tr>
+          <tr><td>Ronde 9</td><td>za 21 feb 2026</td><td>Thuis</td><td>RAOKTUM 1</td><td>12:30</td></tr>
+          <tr><td>Ronde 10</td><td>za 28 feb 2026</td><td>Uit</td><td>SMASH BOZ 5</td><td>11:00</td></tr>
+          <tr><td>Inhaal Ronde 8</td><td>za 7 mrt 2026</td><td>Thuis</td><td>DEN HOUT 1</td><td>10:00</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="section-title" id="schema">
+      <h2>📅 Wedstrijdschema</h2>
+      <div class="hint">Tip: zet deze pagina op je telefoon → “Deel” → “Zet op beginscherm”.</div>
+    </div>
+
+    <section class="grid">
+      <!-- Ronde 1 -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-header">
+            <div>
+              <div class="round">Ronde 1</div>
+              <div class="date">za 15 november 2025</div>
+            </div>
+            <div class="badges">
+              <span class="badge away">Uit</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv opponent">
+              <div class="k">Tegenstander</div>
+              <div class="v">
+                <a href="https://mijnknltb.toernooi.nl/league/E160D04E-AE07-4D8E-A7B9-1566D2E41433/team/1218" target="_blank" rel="noopener">STRIJDO 3</a>
+                <small>· Oosterhout</small>
+              </div>
+            </div>
+            <div class="kv">
+              <div class="k">Tijd</div>
+              <div class="v">Aanvang 13:00 · Aanwezig 12:30 · Vertrek 12:05</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv">
+              <div class="k">Reis</div>
+              <div class="v">±25 min · 24 km</div>
+            </div>
+            <div class="kv">
+              <div class="k">Adres</div>
+              <div class="v">
+                <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Vincent+van+Goghlaan+59+4907+PH+Oosterhout+NB" target="_blank" rel="noopener">
+                  Vincent van Goghlaan 59, 4907 PH Oosterhout NB
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mutedline"><strong>Captain:</strong> Erwin van der Poel – 06-37655429</div>
+
+          <div class="players">
+            <div class="k">Spelers</div>
+            <div class="v">Marijke · Ralph · Monique · Daan</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ronde 2 -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-header">
+            <div>
+              <div class="round">Ronde 2</div>
+              <div class="date">za 29 november 2025</div>
+            </div>
+            <div class="badges">
+              <span class="badge home">Thuis</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv opponent">
+              <div class="k">Tegenstander</div>
+              <div class="v">
+                <a href="https://mijnknltb.toernooi.nl/league/E160D04E-AE07-4D8E-A7B9-1566D2E41433/team/1216" target="_blank" rel="noopener">SMASH BOZ 4</a>
+              </div>
+            </div>
+            <div class="kv">
+              <div class="k">Tijd</div>
+              <div class="v">Aanvang 10:00 · Aanwezig 09:30</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv">
+              <div class="k">Adres</div>
+              <div class="v">Wilhelminalaan 34, 4941 GK Raamsdonksveer</div>
+            </div>
+          </div>
+
+          <div class="players">
+            <div class="k">Spelers</div>
+            <div class="v">Marijke · Ralph · Monique · Marcel</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ronde 3 -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-header">
+            <div>
+              <div class="round">Ronde 3</div>
+              <div class="date">za 13 december 2025</div>
+            </div>
+            <div class="badges">
+              <span class="badge away">Uit</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv opponent">
+              <div class="k">Tegenstander</div>
+              <div class="v">
+                <a href="https://mijnknltb.toernooi.nl/league/E160D04E-AE07-4D8E-A7B9-1566D2E41433/team/1220" target="_blank" rel="noopener">DEN HOUT 1</a>
+              </div>
+            </div>
+            <div class="kv">
+              <div class="k">Tijd</div>
+              <div class="v">Aanvang 10:30 · Aanwezig 10:00 · Vertrek 09:45</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv">
+              <div class="k">Reis</div>
+              <div class="v">±15 min · 12 km</div>
+            </div>
+            <div class="kv">
+              <div class="k">Adres</div>
+              <div class="v">
+                <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Herstraat+60+4911+BE+Den+Hout" target="_blank" rel="noopener">
+                  Herstraat 60, 4911 BE Den Hout
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mutedline"><strong>Captain:</strong> Nathalie Kroon – 06-15648276</div>
+
+          <div class="players">
+            <div class="k">Spelers</div>
+            <div class="v">Marijke · Ralph · Iris · Daan</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ronde 4 (verzet) -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-header">
+            <div>
+              <div class="round">Ronde 4</div>
+              <div class="date">za 10 januari 2026</div>
+            </div>
+            <div class="badges">
+              <span class="badge away">Uit</span>
+              <span class="badge shift">Verzet</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv opponent">
+              <div class="k">Tegenstander</div>
+              <div class="v">
+                <a href="https://mijnknltb.toernooi.nl/league/E160D04E-AE07-4D8E-A7B9-1566D2E41433/team/1217" target="_blank" rel="noopener">RAOKTUM 1</a>
+              </div>
+            </div>
+            <div class="kv">
+              <div class="k">Tijd</div>
+              <div class="v">Aanvang 12:30 · Aanwezig 12:00 · Vertrek 11:35</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv">
+              <div class="k">Reis</div>
+              <div class="v">±25 min · 25 km</div>
+            </div>
+            <div class="kv">
+              <div class="k">Adres</div>
+              <div class="v">
+                <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Julianalaan+29A+5161+BA+Sprang-Capelle" target="_blank" rel="noopener">
+                  Julianalaan 29-A, 5161 BA Sprang-Capelle
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mutedline"><strong>Captain:</strong> Ronald Kruk – 06-81504778</div>
+
+          <div class="players">
+            <div class="k">Spelers</div>
+            <div class="v">Daan · Ralph · Iris · Sabine</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ronde 5 -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-header">
+            <div>
+              <div class="round">Ronde 5</div>
+              <div class="date">za 17 januari 2026</div>
+            </div>
+            <div class="badges">
+              <span class="badge home">Thuis</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv opponent">
+              <div class="k">Tegenstander</div>
+              <div class="v">
+                <a href="https://mijnknltb.toernooi.nl/league/E160D04E-AE07-4D8E-A7B9-1566D2E41433/team/1219" target="_blank" rel="noopener">SMASH BOZ 5</a>
+              </div>
+            </div>
+            <div class="kv">
+              <div class="k">Tijd</div>
+              <div class="v">Aanvang 10:00 · Aanwezig 09:30</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv">
+              <div class="k">Adres</div>
+              <div class="v">Wilhelminalaan 34, 4941 GK Raamsdonksveer</div>
+            </div>
+          </div>
+
+          <div class="players">
+            <div class="k">Spelers</div>
+            <div class="v">Marijke · Ralph · Iris · Daan · Sabine · Jarno</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ronde 4 (inhaal) -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-header">
+            <div>
+              <div class="round">Ronde 4</div>
+              <div class="date">za 24 januari 2026</div>
+            </div>
+            <div class="badges">
+              <span class="badge away">Uit</span>
+              <span class="badge makeup">Inhaal</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv opponent">
+              <div class="k">Tegenstander</div>
+              <div class="v">
+                <a href="https://mijnknltb.toernooi.nl/league/E160D04E-AE07-4D8E-A7B9-1566D2E41433/team/1217" target="_blank" rel="noopener">RAOKTUM 1</a>
+              </div>
+            </div>
+            <div class="kv">
+              <div class="k">Tijd</div>
+              <div class="v">Aanvang 12:30 · Aanwezig 12:00 · Vertrek 11:35</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv">
+              <div class="k">Reis</div>
+              <div class="v">±25 min · 25 km</div>
+            </div>
+            <div class="kv">
+              <div class="k">Adres</div>
+              <div class="v">
+                <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Julianalaan+29A+5161+BA+Sprang-Capelle" target="_blank" rel="noopener">
+                  Julianalaan 29-A, 5161 BA Sprang-Capelle
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mutedline"><strong>Captain:</strong> Ronald Kruk – 06-81504778</div>
+
+          <div class="players">
+            <div class="k">Spelers</div>
+            <div class="v">Jarno · Ralph · Winnie · Monique</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ronde 6 -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-header">
+            <div>
+              <div class="round">Ronde 6</div>
+              <div class="date">za 31 januari 2026</div>
+            </div>
+            <div class="badges">
+              <span class="badge home">Thuis</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv opponent">
+              <div class="k">Tegenstander</div>
+              <div class="v">
+                <a href="https://mijnknltb.toernooi.nl/league/E160D04E-AE07-4D8E-A7B9-1566D2E41433/team/1218" target="_blank" rel="noopener">STRIJDO 3</a>
+              </div>
+            </div>
+            <div class="kv">
+              <div class="k">Tijd</div>
+              <div class="v">Aanvang 11:00 · Aanwezig 10:30</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv">
+              <div class="k">Adres</div>
+              <div class="v">Wilhelminalaan 34, 4941 GK Raamsdonksveer</div>
+            </div>
+          </div>
+
+          <div class="players">
+            <div class="k">Spelers</div>
+            <div class="v">Iris · Daan · Sabine · Thijs</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ronde 7 -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-header">
+            <div>
+              <div class="round">Ronde 7</div>
+              <div class="date">za 7 februari 2026</div>
+            </div>
+            <div class="badges">
+              <span class="badge away">Uit</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv opponent">
+              <div class="k">Tegenstander</div>
+              <div class="v">
+                <a href="https://mijnknltb.toernooi.nl/league/E160D04E-AE07-4D8E-A7B9-1566D2E41433/team/1216" target="_blank" rel="noopener">SMASH BOZ 4</a>
+                <small>· Bergen op Zoom</small>
+              </div>
+            </div>
+            <div class="kv">
+              <div class="k">Tijd</div>
+              <div class="v">Aanvang 11:00 · Aanwezig 10:30 · Vertrek 09:35</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv">
+              <div class="k">Reis</div>
+              <div class="v">±55 min · 58 km</div>
+            </div>
+            <div class="kv">
+              <div class="k">Adres</div>
+              <div class="v">
+                <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Beukenlaan+12+4624+AE+Bergen+op+Zoom" target="_blank" rel="noopener">
+                  Beukenlaan 12, 4624 AE Bergen op Zoom
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mutedline"><strong>Captain:</strong> Nienke Kwik – 06-51021187</div>
+
+          <div class="players">
+            <div class="k">Spelers</div>
+            <div class="v">Marijke · Ralph · Iris · Daan</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ronde 8 (verzet naar 7 maart) -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-header">
+            <div>
+              <div class="round">Ronde 8</div>
+              <div class="date"><span class="strike">za 14 februari 2026</span> · verzet naar 7 maart</div>
+            </div>
+            <div class="badges">
+              <span class="badge home">Thuis</span>
+              <span class="badge shift">Verzet</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv opponent">
+              <div class="k">Tegenstander</div>
+              <div class="v">
+                <a href="https://mijnknltb.toernooi.nl/league/E160D04E-AE07-4D8E-A7B9-1566D2E41433/team/1220" target="_blank" rel="noopener">DEN HOUT 1</a>
+              </div>
+            </div>
+            <div class="kv">
+              <div class="k">Tijd (origineel)</div>
+              <div class="v">Aanvang 10:30 · Aanwezig 10:00</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv">
+              <div class="k">Adres</div>
+              <div class="v">Wilhelminalaan 34, 4941 GK Raamsdonksveer</div>
+            </div>
+          </div>
+
+          <div class="players">
+            <div class="k">Spelers (concept)</div>
+            <div class="v"><span class="strike">Iris · Daan · Sabine · <span class="maybe">Jarno?</span></span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ronde 9 -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-header">
+            <div>
+              <div class="round">Ronde 9</div>
+              <div class="date">za 21 februari 2026</div>
+            </div>
+            <div class="badges">
+              <span class="badge home">Thuis</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv opponent">
+              <div class="k">Tegenstander</div>
+              <div class="v">
+                <a href="https://mijnknltb.toernooi.nl/league/E160D04E-AE07-4D8E-A7B9-1566D2E41433/team/1217" target="_blank" rel="noopener">RAOKTUM 1</a>
+              </div>
+            </div>
+            <div class="kv">
+              <div class="k">Tijd</div>
+              <div class="v">Aanvang 12:30 · Aanwezig 12:00</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv">
+              <div class="k">Adres</div>
+              <div class="v">Wilhelminalaan 34, 4941 GK Raamsdonksveer</div>
+            </div>
+          </div>
+
+          <div class="players">
+            <div class="k">Spelers</div>
+            <div class="v">Iris · Daan · Sabine · <span class="maybe">Jarno?</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Ronde 10 -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-header">
+            <div>
+              <div class="round">Ronde 10</div>
+              <div class="date">za 28 februari 2026</div>
+            </div>
+            <div class="badges">
+              <span class="badge away">Uit</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv opponent">
+              <div class="k">Tegenstander</div>
+              <div class="v">
+                <a href="https://mijnknltb.toernooi.nl/league/E160D04E-AE07-4D8E-A7B9-1566D2E41433/team/1219" target="_blank" rel="noopener">SMASH BOZ 5</a>
+                <small>· Bergen op Zoom</small>
+              </div>
+            </div>
+            <div class="kv">
+              <div class="k">Tijd</div>
+              <div class="v">Aanvang 11:00 · Aanwezig 10:30 · Vertrek 09:35</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv">
+              <div class="k">Reis</div>
+              <div class="v">±55 min · 58 km</div>
+            </div>
+            <div class="kv">
+              <div class="k">Adres</div>
+              <div class="v">
+                <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Beukenlaan+12+4624+AE+Bergen+op+Zoom" target="_blank" rel="noopener">
+                  Beukenlaan 12, 4624 AE Bergen op Zoom
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mutedline"><strong>Captain:</strong> Gabriela van Staden – 06-15893031</div>
+
+          <div class="players">
+            <div class="k">Spelers</div>
+            <div class="v">Marijke · Ralph · Daan · <span class="maybe">Iris?</span> · Sabine · <span class="maybe">Jarno?</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Inhaal Ronde 8 (7 maart) -->
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-header">
+            <div>
+              <div class="round">Inhaalwedstrijd Ronde 8</div>
+              <div class="date">za 7 maart 2026</div>
+            </div>
+            <div class="badges">
+              <span class="badge home">Thuis</span>
+              <span class="badge makeup">Inhaal</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv opponent">
+              <div class="k">Tegenstander</div>
+              <div class="v">
+                <a href="https://mijnknltb.toernooi.nl/league/E160D04E-AE07-4D8E-A7B9-1566D2E41433/team/1220" target="_blank" rel="noopener">DEN HOUT 1</a>
+              </div>
+            </div>
+            <div class="kv">
+              <div class="k">Tijd</div>
+              <div class="v">Aanvang 10:00 · Aanwezig 09:45</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="kv">
+              <div class="k">Adres</div>
+              <div class="v">Wilhelminalaan 34, 4941 GK Raamsdonksveer</div>
+            </div>
+          </div>
+
+          <div class="players">
+            <div class="k">Spelers</div>
+            <div class="v">Marijke · Ralph · Monique · Marcel</div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </div>
+</body>
+</html>
